@@ -1,0 +1,31 @@
+﻿@using WebSiteBanHang.Models;
+@model IEnumerable<Quyen>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+</br>
+<table class="table">
+    <tr>
+        <td>Mã Quyền</td>
+        <td>Tên Quyền</td>
+        <td>Tác Vụ</td>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.MaQuyen</td>
+    <td>@item.TenQuyen</td>
+    <td >
+        @Html.ActionLink("Chỉnh Sửa", "SuaQuyen", new { id = item.MaQuyen })
+        @Html.ActionLink("Xóa", "XoaQuyen", new { id = item.MaQuyen })
+    </td>
+
+</tr>
+    }
+</table>
+
+
